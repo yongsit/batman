@@ -3,7 +3,11 @@ let tone = 262
 let beat = music.beat(BeatFraction.Breve)
 let distance = 0
 basic.forever(function () {
-    distance = pins.analogReadPin(AnalogPin.P1)
+    distance = sonar.ping(
+    DigitalPin.P1,
+    DigitalPin.P2,
+    PingUnit.Centimeters
+    )
     led.plotBarGraph(
     distance,
     500
